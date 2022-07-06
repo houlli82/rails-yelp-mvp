@@ -1,0 +1,22 @@
+<h1><%= @restaurant.name %></h1>
+
+<div class="border p-2 mb-2 bg-secondary text-dark bg-opacity-10">
+  <p>Address: <%= @restaurant.address %></p>
+  <p>Tel: <%= @restaurant.phone_number %></p>
+  <p>Category: <%= @restaurant.category %></p>
+</div>
+
+<div class="mb-2">
+  <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+  <%= link_to 'Back', restaurants_path, class: "btn btn-secondary" %>
+</div>
+<h5>Reviews of <%= @restaurant.name %></h5>
+
+<div class="d-grid">
+  <% @restaurant.reviews.each do |review| %>
+  <div class="border border-secondary p-2 mb-2">
+    <p><%= review.content %></p>
+    <p>RATING: <%= "⭐ " * review.rating %></p>
+  </div>
+  <% end %>
+</div>

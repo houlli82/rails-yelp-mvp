@@ -1,0 +1,7 @@
+<h1>Restaurants list</h1>
+<%= link_to 'Add a restaurant', new_restaurant_path, class: 'btn btn-primary mb-2' %>
+<% @restaurants.each_with_index do |restaurant, index| %>
+  <div class="d-grid">
+    <p class="p-2 bg-light border"><%= link_to restaurant.name, restaurant_path(restaurant) %></p>
+  <div>
+<% end %>
